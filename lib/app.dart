@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ncm/bottom_nav_bar_view.dart';
+import 'package:ncm/login.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(useMaterial3: true),
-      home: const BottomNavBar(),
+      home: const LoginView(),
       debugShowCheckedModeBanner: false,
     );
   }

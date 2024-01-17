@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:ncm/bottom_nav_bar_view.dart';
 import 'package:ncm/common/app_colors.dart';
 import 'package:ncm/common/ui_helpers.dart';
 import 'package:ncm/gen/assets.gen.dart';
@@ -57,13 +58,15 @@ class LoginView extends StatelessWidget {
                           padding: const EdgeInsets.all(8.0),
                           child: Assets.images.logo.image(width: width / 1.5),
                         ),
-                        const CustomText(
-                          text: 'Login',
-                          size: 30.0,
-                          color: ColorsApp.mainColor,
-                          letterSpacing: 0.72,
-                          fontWeight: FontWeight.w700,
-                          textAlign: TextAlign.center,
+                        const Center(
+                          child: CustomText(
+                            text: 'Login',
+                            size: 30.0,
+                            color: ColorsApp.mainColor,
+                            letterSpacing: 0.72,
+                            fontWeight: FontWeight.w700,
+                            textAlign: TextAlign.center,
+                          ),
                         ),
                         const CustomText(
                           size: 16.0,
@@ -84,10 +87,15 @@ class LoginView extends StatelessWidget {
                         const CustomField(obscureText: true, text: 'Enter your password'),
                         verticalSpaceSmall,
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushAndRemoveUntil(
+                              MaterialPageRoute(builder: (context) => const BottomNavBar()),
+                              (route) => false,
+                            );
+                          },
                           child: Container(
                             height: 50.0,
-                            margin: EdgeInsets.all(14),
+                            margin: const EdgeInsets.all(14),
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(5.0),
                               color: const Color(0xFF3C7CBF),
@@ -127,7 +135,7 @@ class LoginView extends StatelessWidget {
                                       letterSpacing: 0.3,
                                     ),
                                     children: [
-                                      TextSpan(text: 'Not a member?'),
+                                      const TextSpan(text: 'Not a member?'),
                                       TextSpan(
                                         text: ' ',
                                         style: GoogleFonts.roboto(
